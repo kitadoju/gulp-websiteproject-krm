@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 8.1 14.7" style="enable-background:new 0 0 8.1 14.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#E9663F;stroke-miterlimit:10;}
+</style>
+<title>chevron</title>
+<g id="Layer_2">
+	<g id="Layer_1-2">
+		<polyline class="st0" points="0.7,14.4 7.7,7.3 0.7,0.3 		"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 683 384)"><tspan x="0" y="0" style="font-family:'MyriadPro-Regular'; font-size:12px;">position: relative;</tspan><tspan x="0" y="14.4" style="font-family:'MyriadPro-Regular'; font-size:12px;">        margin-left: 20px;</tspan><tspan x="0" y="28.8" style="font-family:'MyriadPro-Regular'; font-size:12px;">        p:before {</tspan><tspan x="0" y="43.2" style="font-family:'MyriadPro-Regular'; font-size:12px;">          content: url(../img/chevron.svg);</tspan><tspan x="0" y="57.6" style="font-family:'MyriadPro-Regular'; font-size:12px;">          width:7px;</tspan><tspan x="0" y="72" style="font-family:'MyriadPro-Regular'; font-size:12px;">          height: 14px;</tspan><tspan x="0" y="86.4" style="font-family:'MyriadPro-Regular'; font-size:12px;">          position: absolute;</tspan><tspan x="0" y="100.8" style="font-family:'MyriadPro-Regular'; font-size:12px;">          display: block;</tspan><tspan x="0" y="115.2" style="font-family:'MyriadPro-Regular'; font-size:12px;">          left: -20px;</tspan><tspan x="0" y="129.6" style="font-family:'MyriadPro-Regular'; font-size:12px;">          top: 50%;</tspan><tspan x="0" y="144" style="font-family:'MyriadPro-Regular'; font-size:12px;">          transform: translateY(-50%);</tspan><tspan x="0" y="158.4" style="font-family:'MyriadPro-Regular'; font-size:12px;">        }</tspan></text>
+</svg>

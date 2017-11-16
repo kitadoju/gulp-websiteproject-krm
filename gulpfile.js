@@ -32,6 +32,14 @@ gulp.task('sass', function() {
         .pipe(reload({ stream:true }));
 });
 
+//compile css library
+gulp.task('css', function() {
+    return gulp.src('dev/css/*.css')
+        .pipe(concat('library.css'))
+        .pipe(gulp.dest('prod/css'))
+        .pipe(reload({ stream:true }));
+});
+
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
@@ -44,15 +52,6 @@ gulp.task('scripts', function() {
         .pipe(reload({ stream:true }));
 });
 
-gulp.task('plugin', function() {
-    return gulp.src('dev/js/plugin/*.js')
-        .pipe(concat('all_plugin.js'))
-        .pipe(gulp.dest('dev/js'))
-        .pipe(rename('all_plugin.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('prod/js'))
-        .pipe(reload({ stream:true }));
-});
 
 //copy files from dev to prodw
 gulp.task('copy-pages',function () {
@@ -67,7 +66,12 @@ gulp.task('copy-includes',function () {
 });
 
 gulp.task('copy-img',function () {
-    return gulp.src('dev/img/*.{png,jpg,svg}')
+    return gulp.src('dev/img/*.{png,jpg,svg,mp4,webm}')
+    .pipe(gulp.dest('prod/img'))
+    .pipe(reload({ stream:true }));
+});
+gulp.task('copy-icon',function () {
+    return gulp.src('dev/img/*/*.{png,jpg,svg}')
     .pipe(gulp.dest('prod/img'))
     .pipe(reload({ stream:true }));
 });
@@ -77,8 +81,13 @@ gulp.task('copy-fonts',function () {
     .pipe(reload({ stream:true }));
 });
 gulp.task('copy-files',function () {
-    return gulp.src('dev/*.txt')
+    return gulp.src('dev/*.{txt,xml}')
     .pipe(gulp.dest('prod/'))
+    .pipe(reload({ stream:true }));
+});
+gulp.task('copy-library',function () {
+    return gulp.src('dev/js/plugin/*.js')
+    .pipe(gulp.dest('prod/js/plugin'))
     .pipe(reload({ stream:true }));
 });
 
@@ -89,9 +98,10 @@ gulp.task('watch', function() {
     gulp.watch('dev/scss/*.scss', ['sass']);
     gulp.watch('dev/*.{html,php}',['copy-pages']);
     gulp.watch('dev/includes/*.php',['copy-includes']);
-    gulp.watch('dev/*.{txt,xml,rb}',['copy-files']);
-    gulp.watch('dev/img/*.{png,jpg,svg}',['copy-img']);
+    gulp.watch('dev/*.{txt,xml}',['copy-files']);
+    gulp.watch('dev/img/*.{png,jpg,svg,mp4,webm}',['copy-img']);
     gulp.watch('dev/fonts/*.{eof,ttf,svg,woff,woff2}',['copy-fonts']);
+    gulp.watch('dev/js/plugin/*.js',['copy-library']);
 });
 
 //If php pages
@@ -117,6 +127,7 @@ gulp.task('browser-sync', ['sass','copy','php'], function() {
 
 
 //3 . Set the default task
-gulp.task('copy',['copy-img','copy-pages','copy-files','copy-fonts', 'copy-includes']);
+gulp.task('style',['sass','css']);
+gulp.task('copy',['copy-img','copy-pages','copy-files','copy-fonts', 'copy-includes','copy-library']);
 // Default Task
-gulp.task('default', ['lint', 'sass','scripts','plugin', 'watch','copy','browser-sync']);
+gulp.task('default', ['lint', 'style','scripts','watch','copy','browser-sync']);
