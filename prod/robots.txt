@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /credits.php
-Disallow: /maintenance.php
-
-Sitemap: http://krm-web.com/sitemap.xml
